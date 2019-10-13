@@ -1,0 +1,24 @@
+#header {
+    background: #f8ff88;
+    height: 350px;
+    text-align: center;
+}
+
+#navigation {
+    background: rgba(48, 128, 102, 0.1);
+}
+
+#sidebar {
+    background: rgba(48, 128, 102, 0.1);
+}
+
+#main-content {
+    background: #1f6fb2;
+    min-height: 700px;
+    color: white;
+}
+#footer {
+    background: #f8ff88;
+    height: 350px;
+    text-align: center;
+}

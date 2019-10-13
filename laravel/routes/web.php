@@ -125,3 +125,57 @@ Route::get("/demoblade/for", "DemobladeController@demofor");
 Route::get("/demoblade/foreach", "DemobladeController@demoforeach");
 Route::get("/demoblade/isset", "DemobladeController@demoisset");
 
+
+/**
+ * kỹ thuật truyền biến từ trên thanh địa chỉ url xuống router
+ */
+Route::get("/truyenbien/{action}/{id}/{campaign}/{tracking}", function($action, $id, $campaign, $tracking) {
+
+    echo "<br> action : " . $action;
+    echo "<br> id : " . $id;
+    echo "<br> campaign : " . $campaign;
+    echo "<br> tracking : " . $tracking;
+
+    $dataView = [
+        "action" => $action,
+        "id" => $id,
+        "campaign" => $campaign,
+        "tracking" => $tracking,
+    ];
+
+    return view("truyenbien", $dataView);
+});
+
+Route::get("/truyenbien2/{action}/{id?}/{campaign?}/{tracking?}", function($action, $id = 0, $campaign = "", $tracking = "") {
+
+    echo "<br> action : " . $action;
+    echo "<br> id : " . $id;
+    echo "<br> campaign : " . $campaign;
+    echo "<br> tracking : " . $tracking;
+
+    $dataView = [
+        "action" => $action,
+        "id" => $id,
+        "campaign" => $campaign,
+        "tracking" => $tracking,
+    ];
+
+    return view("truyenbien2", $dataView);
+
+});
+
+/**
+ * truyền biến từ url cho router => controller => view
+ */
+Route::get("/truyenbiencontroller/{action}/{id}/{campaign}/{tracking}", "TruyenbienController@index");
+
+Route::get("/truyenbiencontroller2/{action}/{id?}/{campaign?}/{tracking?}", "Truyenbien2Controller@index");
+
+
+/**
+ * master layout
+ */
+Route::get("demolayout/{page?}", "DemolayoutController@index");
+Route::get("demolayout2/{page?}", "DemolayoutController@index2");
+Route::get("demolayout3/{page?}", "DemolayoutController@index3");
+
