@@ -16,7 +16,7 @@
  */
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware("checktime");
 
 /**
  * phương thức get() là phương thức tĩnh ( static method )
